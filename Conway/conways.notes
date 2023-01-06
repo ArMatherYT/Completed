@@ -1,0 +1,110 @@
+1. => Creando la ventana <=
+5. Primero importamos las librerias
+que utilizaremos
+9. Creamos la configuracion basica
+de pygame
+
+16. => Variables del juego <=
+17. Declaramos los fps, estos son
+importantes pues limitaran la
+velocidad del juego
+18. Despues las variables para la
+resolucion del juego, pueden ser
+cualquier numero entero, pero deben
+ser divisores de la resolucion de
+la pantalla, si no se vera cuadrada
+
+23. => Colores del juego <=
+    Declaramos los colores del
+    juego, estos son a tu eleccion
+
+30. => Clase principal <=
+
+33. => __init__ <=
+llama a la funcion reset para iniciar
+las variables
+
+36. => reset <=
+declara las variables a utilizar
+38. el tablero sera una matriz llena
+de ceros, usaremos np.zeros
+
+42. => click <= 
+actualiza el tablero cuando hacemos
+click
+44. si el juego no esta en pausa
+regresamos, ya que solo queremos
+actualizar el juego en pause
+45. obtenemos la columna del tablero
+46. obtenemos la fila del tablero
+47. si la celda que seleccionamos
+es un 0 se convierte en 1 y viceversa
+
+49. => get_neighbours <=
+regresa el numero de vecinos que hay
+en la celda que le digamos
+52. checamos cada fila
+53. por cada fila cada columna
+54. si la fila y la columna es 0
+entonces la saltamos, esto por que
+no queremos contar como vecino a la
+celda que le indicamos
+55. obtenemos la columna, utilizamos
+el modulo para tener un espacio que
+al llegar al final se regrese al
+inicio
+56. lo mismo con la fila
+57. agregamos a la variable vecinos
+la celda correspondiente
+58. regresamos la cantidad de vecinos
+
+60. => update <=
+62. si el juego esta en pausa entonces
+regresamos
+63. creamos el nuevo juego
+64. iteramos cada fila
+65. y en la fila cada columna
+66. obtenemos el numero de vecinos
+de la celda en curso
+67. si el numero de vecinos es menor
+a 2 o mayor a 3 entonces la celda
+"muere" de soledad o sobrepoblacion
+69. si el numero de vecinos es igual
+a 3 y la celda esta "muerta" entonces
+"revive"
+71. si no es cualquiera de las anteriores
+entonces copiamos la celda que habia
+en el juego anteriores
+73. actualizamos el juego
+
+75. => show <=
+dibuja el juego en la pantalla
+77. iteramos cada fila
+78. iteramos cada columna
+79. determinamos el rectangulo de
+la celda actual
+84. obtenemos la celda actual
+85. obtenemos el numero de vecinos
+86. utilizamos un "match" para tener
+el color de la celda segun corresponda
+94. pintamos la celda
+95. le ponemos un marco
+
+98. => main <=
+maneja el bucle del juego
+100. creamos el tablero
+102. empezamos el bucle principal
+104. refrescamos la pantalla
+107. checamos los eventos
+124. actualizamos el tablero
+125. dibujamos el tablero
+128. actualizamos la pantalla
+129. esperamos el tiempo necesario
+para cumplir con los FPS que
+Declaramos
+
+132. hacemos un if para verificar
+que el programa haya sido ejecutado
+directamente y no importado
+133. llamamos a la funcion principal
+
