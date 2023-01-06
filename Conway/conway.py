@@ -8,15 +8,15 @@ import numpy as np
 # PYGAME CONFIG
 pygame.init()
 pygame.display.set_caption("CONWAY'S GAME OF LIFE")
-SCREEN = pygame.display.set_mode((800, 600))
+SCREEN = pygame.display.set_mode((1600, 800))
 WIDTH, HEIGHT = SCREEN.get_size()
 CLOCK = pygame.time.Clock()
 FONT = pygame.font.SysFont('Arial', 30)
 
 # GAME CONFIG
 FPS = 10
-GRID_WIDTH = 20
-GRID_HEIGHT = 15
+GRID_WIDTH = 32
+GRID_HEIGHT = 16
 SQUARE_WIDTH = WIDTH / GRID_WIDTH
 SQUARE_HEIGHT = HEIGHT / GRID_HEIGHT
 
@@ -97,6 +97,7 @@ class Board:
 
 def main() -> None:
     """Main loop"""
+    global FPS
     BOARD = Board()
 
     while True:
@@ -119,12 +120,18 @@ def main() -> None:
                     BOARD.show_next = not BOARD.show_next
                 elif event.key == pygame.K_r:
                     BOARD.reset()
+                elif event.key == pygame.K_PLUS and FPS < 60:
+                    FPS += 1
+                elif event.key == pygame.K_MINUS and FPS > 1:
+                    FPS -= 1
         
         # BOARD
         BOARD.update()
         BOARD.show()
         
         # UPDATE THE WINDOW
+        fps = FONT.render(str(FPS), True, 'white')
+        SCREEN.blit(fps, (0, 0))
         pygame.display.update()
         CLOCK.tick(FPS)
 

@@ -1,0 +1,37 @@
+7. Actualizamos las fuentes,
+necesitaremos una grande y una mas
+pequeña
+
+10. Estos colores son a tu
+consideracion
+
+32. Le damos un color diferente
+a la X y a la O
+
+79. Cambiamos el colord del fondo
+
+86. Le damos mayor grosor a la
+cuadricula y tambien hacemos que 
+no toque los bordes para mas estilo
+
+22. Ahora creamos una variable para
+el ganador
+
+43. Si hay algun ganador entonces no
+queremos que se pueda hacer click
+en el tablero
+
+48. Si hay un ganador entonces asignamos
+al jugador en ese turno como el
+ganador
+
+42. Ahora checamos si hay algun
+ganador para mostarlo en la pantalla
+
+43. El mensaje sera el ganador con un
+WINS! al final
+
+92. Ahora detectamos si hay alguna
+tecla presionada, si si entonces
+verificamos si es el espacio, si es
+entonces reiniciamos el tablero
