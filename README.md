@@ -17,6 +17,13 @@ un estilo **PEP8** con Type Hinting, docstrings y demás.
 * **PYGAME**
     * Snake
     * TicTacToe
+* **TKINTER**
+
+* **SHORTS**
+    * Snake
+    * Pong
+    * TicTacToe
+    * Conway's Game of life
 
 # **CREDITS**
 | **Name**         | **User**         |
