@@ -18,7 +18,8 @@ un estilo **PEP8** con Type Hinting, docstrings y demás.
     * Snake
     * TicTacToe
 * **TKINTER**
-    * ToDo app
+    * Simple ToDo app
+    * Full ToDo app
 
 * **SHORTS**
     * Snake
