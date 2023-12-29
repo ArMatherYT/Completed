@@ -1,0 +1,6 @@
+Pygame
+    Animaciones
+        - Triangulo de Pascal ✅
+    Representaciones
+    Juegos
+        - Conways

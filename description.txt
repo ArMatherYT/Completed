@@ -1,0 +1,22 @@
+Encuentra el código en GitHub
+👨🏻‍💻 https://github.com/ArMatherYT/Completed
+
+Curso de python recomendado:
+💖 https://www.youtube.com/watch?v=rfscVS0vtbw              
+
+Documentación de Pygame
+🐍 https://www.pygame.org/docs/
+
+¿Qué utilizo para programar?
+- 💛 Python 3.11.4
+- 💙 Visual Studio Code
+    - Python
+    - vscode-icons
+    - Identical Sublime Text Monokai
+    - Color Highlight
+    - Notes
+
+¿Qué utilizo para hacer videos?
+- 🎥 OBS
+- 🎬 Clipchamp
+- 💙 Visual Studio Code
