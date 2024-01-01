@@ -16,5 +16,3 @@ while True:
     if B.y in (10, 490): BD.y *= -1
     if B.x < 10 or B.x > 490: B.x,B.y,BD=250,250,-BD 
     pg.display.update(), pg.time.wait(16), (B:=B+BD)
-
-
