@@ -1,6 +1,9 @@
 import math
+from math import sin, cos
 import pygame
 import random
+from random import randint
+from pygame.mixer import Sound
 
 pygame.init()
 SCREEN = pygame.display.set_mode((400, 400))
@@ -33,9 +36,9 @@ class Particle:
         angle = math.radians(angle)
         self.x = x
         self.y = y
-        self.speed = random.randint(50, 100)
-        self.dx = self.speed * math.cos(angle)
-        self.dy = self.speed * math.sin(angle)
+        self.speed = randint(50, 100)
+        self.dx = self.speed*cos(angle)
+        self.dy = self.speed*sin(angle)
         self.color = random.choice(COLORS)
     
     def draw(self) -> None:
@@ -49,19 +52,21 @@ class Particle:
 
 
 class Rocket:
+    sound = Sound('recursos/firework.wav')
     def __init__(self, x: float, y: float):
         self.x = x
         self.y = y
         self.particles = []
-        self.speed = random.randint(100, 400)
-        self.max_height = random.randint(0, 100)
-        self.sound = pygame.mixer.Sound('recursos/firework.wav')
+        self.speed = randint(100, 400)
+        self.max_height = randint(0, 100)
     
     def update(self) -> bool:
-        for particle in self.particles: particle.update()
+        for particle in self.particles:
+            particle.update()
         if self.particles: return
         self.y -= self.speed * DT
-        if self.y <= self.max_height: return self.explode()
+        if self.y <= self.max_height:
+            return self.explode()
         return False
         
     def explode(self) -> True:
@@ -73,7 +78,8 @@ class Rocket:
         return True
     
     def draw(self) -> None:
-        for particle in self.particles: particle.draw()
+        for particle in self.particles:
+            particle.draw()
         if self.particles: return
         pygame.draw.rect(
             SCREEN, 'red',
@@ -84,18 +90,21 @@ class Rocket:
 class RocketCluster:
     def __init__(self):
         self.rockets = [
-            Rocket(random.randint(10, WIDTH-10), HEIGHT+100)
+            Rocket(
+                randint(10, WIDTH-10),
+                HEIGHT+100
+            )
             for _ in range(5)
         ]
     
     def update(self) -> None:
         for rocket in self.rockets:
-            if rocket.update():
-                x = random.randint(10, WIDTH-10)
-                new = Rocket(x, HEIGHT+100)
-                self.rockets.append(new)
-                if len(self.rockets) > 15:
-                    self.rockets.pop(0)
+            if not rocket.update(): continue
+            x = randint(10, WIDTH-10)
+            new = Rocket(x, HEIGHT+100)
+            self.rockets.append(new)
+            if len(self.rockets) > 15:
+                self.rockets.pop(0)
 
     def draw(self) -> None:
         for rocket in self.rockets:
